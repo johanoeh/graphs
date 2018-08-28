@@ -31,6 +31,14 @@ void adjacency_matrix::add(std::size_t node_a, std::size_t node_b, int weight){
   matrix[node_a][node_b] = matrix[node_b][node_a] = weight;
 }
 
+void adjacency_matrix::set_visited(std::size_t node_n, bool v_bool){
+  visited[node_n] = v_bool;
+}
+
+bool adjacency_matrix::is_visited(std::size_t node_n){
+  return visited[node_n];
+}
+
 adjacency_matrix::adjacency_matrix(const adjacency_matrix& orig){
   *this = orig;
 }
@@ -55,12 +63,19 @@ std::vector<int> & adjacency_matrix::operator[](const int index){
   return matrix[index];
 }
 
+/**
+ * Overloaded ostream operator used to print  the matrix using operator <<
+ */
 std::ostream & operator<<(std::ostream & out, const adjacency_matrix & m){
   for(std::vector<int> row : m.matrix){
      for(int col : row) out << col << ' ';
      out << std::endl;
   }
   return out; 
+}
+
+std::size_t adjacency_matrix::size(){
+  return n;
 }
 
 adjacency_matrix::~adjacency_matrix(){
