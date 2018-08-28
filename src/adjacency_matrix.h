@@ -16,6 +16,11 @@ public:
 
   adjacency_matrix(std::size_t);
   adjacency_matrix(const adjacency_matrix& orig);
+  /**
+   * Adds an edge between node a and node b with a weight
+   */
+  void add(std::size_t node_a, std::size_t node_b, int weight);
+  std::vector<int> & operator[](const int index);
   friend std::ostream& operator<<(std::ostream& out,const adjacency_matrix & m);
   virtual ~adjacency_matrix();
 
