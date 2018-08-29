@@ -1,5 +1,6 @@
 #include <iostream>
 #include "adjacency_matrix.h"
+#include "algorithms.h"
 
 int main(int argv,char ** argc){ 
 

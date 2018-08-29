@@ -31,16 +31,27 @@ void adjacency_matrix::add(std::size_t node_a, std::size_t node_b, int weight){
   matrix[node_a][node_b] = matrix[node_b][node_a] = weight;
 }
 
+/**
+ * sets the visited value for a node
+ * @param node_n the node to set value for
+ * @param v_bool the boolean value for the node true or false
+ */
 void adjacency_matrix::set_visited(std::size_t node_n, bool v_bool){
   visited[node_n] = v_bool;
+  path.push(node_n);
 }
 
+/**/
 bool adjacency_matrix::is_visited(std::size_t node_n){
   return visited[node_n];
 }
 
 adjacency_matrix::adjacency_matrix(const adjacency_matrix& orig){
   *this = orig;
+}
+
+std::queue<int> adjacency_matrix::get_path(){
+  return path;
 }
 
 adjacency_matrix & adjacency_matrix::operator=(const adjacency_matrix & orig){

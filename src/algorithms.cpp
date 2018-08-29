@@ -24,7 +24,7 @@ void BFS(adjacency_matrix & m, std::size_t start_n){
 
     for(std::size_t i = 0; i < m.size() ; i++){
 
-      if(!m.is_visited(i) && m[curr_n][i] == 0){
+      if(!m.is_visited(i) && m[curr_n][i] != 0){
 	q.push(i);
         m.set_visited(i,true);
       }
@@ -32,8 +32,14 @@ void BFS(adjacency_matrix & m, std::size_t start_n){
   }
 }
 
-void DFS(adjacency_matrix & m, std::size_t start_n){
+void DFS(adjacency_matrix & m, std::size_t node_n){
 
+  for(std::size_t i = 0; i < m.size(); i++ ){
+    if(!m.is_visited(i) && m[node_n][i] != 0 ){
+      DFS(m,i);
+    }
+  }
+  m.set_visited(node_n,true);
 }
 
 void dijkstra(adjacency_matrix & m, std::size_t start_n){

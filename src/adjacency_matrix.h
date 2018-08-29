@@ -9,6 +9,7 @@
 
 #include <vector>
 #include <iostream>
+#include <queue>
 
 class adjacency_matrix {
 
@@ -17,7 +18,7 @@ public:
   adjacency_matrix(std::size_t);
   adjacency_matrix(const adjacency_matrix& orig);
   adjacency_matrix & operator=(const adjacency_matrix & other);
- 
+  std::queue<int> get_path();
   bool is_visited(std::size_t);
   void set_visited(std::size_t, bool);
   std::size_t size();
@@ -30,6 +31,7 @@ public:
   virtual ~adjacency_matrix();
 
 private:
+  std::queue<int> path;
   std::vector< std::vector<int> > matrix;
   std::size_t  n;
   std::vector<bool> visited;
