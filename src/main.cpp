@@ -16,20 +16,23 @@ int main(int argv,char ** argc){
     i++;
   }
 
-  srand(time(NULL)); 
-  std::random_shuffle(nodes.begin(), nodes.end());
-
   for(node n: nodes){ 
     std::cout << n << std::endl;
   }
 
-  std::cout<<std::endl;
+  node n = nodes[0];
 
-  std::sort(nodes.begin(), nodes.end());
-
-  for(node n: nodes){ 
-    std::cout << n << std::endl;
+  for(int i = 0; i < nodes.size() ; i++){
+     n = n + nodes[i]; 
   }
+
+  
+  std::cout << std::endl << n << std::endl;
+
+  for(int i = 0; i < nodes.size() ; i++){
+     n = n - nodes[i]; 
+  }
+  std::cout << std::endl << n << std::endl;
 
   /*adjacency_matrix  matrix(10);
   std::cout << matrix << std:: endl;*/

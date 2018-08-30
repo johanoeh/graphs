@@ -60,6 +60,27 @@ bool operator >=(const node& l, const node & r){
   return l.dist >= r.dist;
 }
 
+/* Overloaded binary arithmetic operators*/
+
+node operator +(node lhs, const node& rhs){
+  lhs+=rhs;
+  return lhs;
+}
+
+node & node::operator+=(const node & rhs){
+  this->dist+=rhs.dist;
+  return *this;
+}
+
+node &node::operator-=(const node & rhs){
+  this->dist-=rhs.dist;
+  return *this;
+}
+
+node operator -(node lhs, const node & rhs){
+  return lhs-=rhs;
+}
+
 std::ostream& operator<<(std::ostream & out, const node& n ){
   out << "node_n: " << n.node_n <<" prev: " << n.prev <<" dist:  " << n.dist ;
   return out;

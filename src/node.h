@@ -27,6 +27,12 @@ public:
   friend bool operator>=(const node& l, const node & r);
   friend std::ostream& operator<<(std::ostream & o, const node & n);
 
+  /*overloaded binary arithmetic operators*/
+  friend node operator+(node lhs, const node& rhs);
+  friend node operator-(node lhs, const node& rhs);
+  node & operator+=(const node& rhs);
+  node & operator-=(const node& rhs);
+
   /* friend functions*/
   friend void BFS(adjacency_matrix & m, std::size_t start_n);
   friend void DFS(adjacency_matrix & m, std::size_t start_n);
