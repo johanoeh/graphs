@@ -12,6 +12,7 @@
 void BFS(adjacency_matrix & m, std::size_t start_n);
 void DFS(adjacency_matrix & m, std::size_t start_n);
 void dijkstra(adjacency_matrix & m, std::size_t start_n);
+void DSF_I(adjacency_matrix & m, std::size_t start_n);
 
 
 #endif /*ALGORITHMS_H*/
