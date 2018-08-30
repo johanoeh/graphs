@@ -2,6 +2,8 @@
 #define NODE_H
 
 #include <cstdlib>
+#include <iostream>
+#include "adjacency_matrix.h"
 
 /**
  * @author johan
@@ -17,10 +19,18 @@ public:
   node(const node& orig);
   node & operator=(const node & orig);
 
+  /* overloaded operators*/
   friend bool operator<(const node& l, const node & r);
   friend bool operator>(const node& l, const node & r);
   friend bool operator<=(const node& l, const node & r);
   friend bool operator>=(const node& l, const node & r);
+  friend std::ostream& operator<<(std::ostream & o, const node & n);
+
+  /* friend functions*/
+  friend void BFS(adjacency_matrix & m, std::size_t start_n);
+  friend void DFS(adjacency_matrix & m, std::size_t start_n);
+  friend void DFS_I(adjacency_matrix & m, std::size_t start_n);
+  friend void dijkstra(adjacency_matrix & m, std::size_t start_n);
 
   virtual ~node();
 
