@@ -30,7 +30,7 @@ int main(int argv,char ** argc){
   std::cout << std::endl << n << std::endl;
 
   for(int i = 0; i < nodes.size() ; i++){
-     n = n - nodes[i]; 
+     n -= nodes[i]; 
   }
   std::cout << std::endl << n << std::endl;
 
