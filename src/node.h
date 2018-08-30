@@ -13,6 +13,7 @@ class node {
 public: 
 
   node(std::size_t node_n, std::size_t dist, std::size_t prev);
+  node();
   node(const node& orig);
   node & operator=(const node & orig);
 

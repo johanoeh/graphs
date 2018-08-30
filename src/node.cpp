@@ -7,13 +7,13 @@
 
 #include "node.h"
 
-node::node(std::size_t node_n, std::size_t dist, std::size_t prev){
 
-  this->node_n = node_n; 
-  this->dist = dist; 
-  this->prev = prev;
+node::node(std::size_t node_n, std::size_t dist, std::size_t prev) : 
+  node_n(node_n), 
+  dist(dist), 
+  prev(prev){}
 
-}
+node::node(){}
 
 node::node(const node& orig){
   *this = orig;
@@ -46,7 +46,6 @@ bool operator<=(const node& l, const node& r){
 bool operator >=(const node& l, const node & r){
   return l.dist >= r.dist;
 }
-
 
 
 node::~node(){
