@@ -18,8 +18,9 @@ public:
   node();
   node(const node& orig);
   node & operator=(const node & orig);
-
-  /* overloaded operators*/
+  
+  void set(std::size_t node_n, std::size_t dist, std::size_t prev);
+  /*Overloaded operators*/
   friend bool operator<(const node& l, const node & r);
   friend bool operator>(const node& l, const node & r);
   friend bool operator<=(const node& l, const node & r);
@@ -35,6 +36,7 @@ public:
   virtual ~node();
 
 private:
+
   std::size_t node_n;
   std::size_t dist;
   std::size_t prev;

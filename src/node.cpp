@@ -21,11 +21,14 @@ node::node(std::size_t node_n, std::size_t dist, std::size_t prev) :
   dist(dist), 
   prev(prev){}
 
-node::node(){}
+node::node():node_n(0),dist(0),prev(0){}
 
 node::node(const node& orig){
   *this = orig;
+}
 
+void node::set(std::size_t node_n, std::size_t dist, std::size_t prev){
+	this->node_n = node_n; this->dist=dist; this->prev=prev;
 }
 
 node & node::operator=(const node & orig){
@@ -58,11 +61,10 @@ bool operator >=(const node& l, const node & r){
 }
 
 std::ostream& operator<<(std::ostream & out, const node& n ){
-  out << n.node_n <<" : " << n.prev <<" :  " << n.dist ;
+  out << "node_n: " << n.node_n <<" prev: " << n.prev <<" dist:  " << n.dist ;
   return out;
 }
 
 node::~node(){
-
 }
 
