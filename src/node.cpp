@@ -16,76 +16,41 @@
  * @param dist the distance to root(start node)
  * @param prev the previous node on the path to root
  */
-node::node(std::size_t node_n, std::size_t dist, std::size_t prev) : 
-  node_n(node_n), 
+template<class T>
+node<T>::node(T dist, std::size_t prev) : 
   dist(dist), 
   prev(prev){}
 
-node::node():node_n(0),dist(0),prev(0){}
+template<class T>
+node<T>::node():is_infinity(1),dist(0),prev(0){}
 
-node::node(const node& orig){
+template<class T>
+node<T>::node(const node<T>& orig){
   *this = orig;
 }
 
-void node::set(std::size_t node_n, std::size_t dist, std::size_t prev){
-	this->node_n = node_n; this->dist=dist; this->prev=prev;
+template<class T>
+void node<T>::set(T dist, std::size_t prev){
+  this->dist = dist; 
+  this->prev = prev; 
+  this->is_infinity = false;
 }
 
-node & node::operator=(const node & orig){
+template<class T>
+node<T> & node<T>::operator=(const node<T> & orig){
 
   // check for selfassignment
   if(this != &orig){
-    this->node_n = orig.node_n;
+    this->is_infinity = orig.is_infinity;
     this->dist = orig.dist;
     this->prev = orig.prev;
   }
   return *this;
 }
 
-/*overloaded operators implementation the distance is used for comparison*/
 
-bool operator<(const node& l, const node & r){
-  return l.dist < r.dist;
-}
+template<class T>
+node<T>::~node(){
 
-bool operator>(const node& l, const node& r){
-  return l.dist > r.dist;
-}
-
-bool operator<=(const node& l, const node& r){
-  return l.dist <= r.dist;
-}
-
-bool operator >=(const node& l, const node & r){
-  return l.dist >= r.dist;
-}
-
-/* Overloaded binary arithmetic operators*/
-
-node operator +(node lhs, const node& rhs){
-  lhs+=rhs;
-  return lhs;
-}
-
-node & node::operator+=(const node & rhs){
-  this->dist+=rhs.dist;
-  return *this;
-}
-
-node &node::operator-=(const node & rhs){
-  this->dist-=rhs.dist;
-  return *this;
-}
-
-node operator -(node lhs, const node & rhs){
-  return lhs-=rhs;
-}
-
-std::ostream& operator<<(std::ostream & out, const node& n ){
-  out << "node_n: " << n.node_n <<" prev: " << n.prev <<" dist:  " << n.dist ;
-  return out;
-}
-
-node::~node(){
 }
 

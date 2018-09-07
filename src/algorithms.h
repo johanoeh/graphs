@@ -9,6 +9,8 @@
 #include "adjacency_matrix.h"
 #include <queue>
 #include <stack>
+#include <vector>
+#include "node.cpp"
 void BFS(adjacency_matrix & m, std::size_t start_n);
 void DFS(adjacency_matrix & m, std::size_t start_n);
 void dijkstra(adjacency_matrix & m, std::size_t start_n);

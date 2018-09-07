@@ -65,7 +65,9 @@ void DFS_I(adjacency_matrix & m, std::size_t start_n){
 }
 
 void dijkstra(adjacency_matrix & m, std::size_t start_n){
- 
+
+ /* std::vector< node<int> > dist(m.size());
+  std::priority_queue<node<int>> pq;*/
  
 }
 
