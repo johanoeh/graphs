@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "adjacency_matrix.h"
+#include <limits>
 
 /**
  * @author johan
@@ -16,28 +17,20 @@ class node {
 
 public: 
 
-  node(T dist, std::size_t prev);
+  node(T dist, std::size_t extra);
   node();
   node(const node& orig);
   node & operator=(const node & orig);
   
-  void set(T dist, std::size_t prev);
-  /*Overloaded operators*//*
-  friend bool operator<(const node<T>& l, const node<T> & r);
-  friend bool operator>(const node<T>& l, const node<T> & r);
-  friend bool operator<=(const node<T>& l, const node<T> & r);
-  friend bool operator>=(const node<T>& l, const node<T> & r);*/
+  void set(T dist, std::size_t extra);
+
+  const T get_dist() const;
 
   friend std::ostream& operator<<(std::ostream & out, const node & n){
-    out << " dist:  " << n.dist << " prev: " << n.prev << " is_infinity: "<< n.is_infinity ;
+    out << " dist:  " << n.dist << " extra: " << n.extra << " inf: "<< n.inf ;
     return out;
   }
 
-  /*overloaded binary arithmetic operators*//*
-  friend node<T> operator+(node<T> lhs, const node<T>& rhs);
-  friend node<T> operator-(node<T> lhs, const node<T>& rhs);
-  node<T> & operator+=(const node<T>& rhs);
-  node<T> & operator-=(const node<T>& rhs);*/
 
   /* friend functions*/
  
@@ -46,10 +39,12 @@ public:
   friend void DFS_I(adjacency_matrix & m, std::size_t start_n);
   friend void dijkstra(adjacency_matrix & m, std::size_t start_n);
 
+
   /*overloaded operators implementation the distance is used for comparison*/
 
  
-   bool operator<(const node<T> & r){
+ bool operator<(const node<T> & r){
+   if(r.inf) return 1;
    return  dist < r.dist;
   }
 
@@ -76,7 +71,7 @@ public:
   
   node<T> & operator+=(const node<T> & rhs){
     this->dist+=rhs.dist;
-    this->is_infinity = 0;
+    this->inf = 0;
     return *this;
   }
 
@@ -98,8 +93,8 @@ public:
 private:
 
   T dist;
-  std::size_t prev;
-  bool is_infinity;
+  std::size_t extra;
+  bool inf;
 
 };
 

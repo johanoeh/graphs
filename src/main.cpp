@@ -52,7 +52,7 @@ bool is_strictly_ascending(std::vector<node<int>> nodes){
 
 }
 
-bool is_descending(std::vector< node<int>> nodes){
+bool is_strictly_descending(std::vector< node<int>> nodes){
 
   auto it = nodes.begin();
 
