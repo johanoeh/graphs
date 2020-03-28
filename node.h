@@ -100,4 +100,3 @@ private:
 
 #endif /*NODE_H*/
 
-

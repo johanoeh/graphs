@@ -59,4 +59,3 @@ template<class T>
 node<T>::~node(){
 
 }
-

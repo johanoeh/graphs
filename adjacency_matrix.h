@@ -37,7 +37,4 @@ private:
   std::vector<bool> visited;
 
 };
-
 #endif /*ADJACENCY_MATRIX_H*/
-
-
